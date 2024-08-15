@@ -824,9 +824,9 @@ function create_each_block_1(ctx) {
 			append_hydration(a, t);
 		},
 		p(ctx, dirty) {
-			if (dirty & /*items2*/ 4 && t_value !== (t_value = /*link*/ ctx[12].label + "")) set_data(t, t_value);
+			if (dirty & /*items2*/ 2 && t_value !== (t_value = /*link*/ ctx[12].label + "")) set_data(t, t_value);
 
-			if (dirty & /*items2*/ 4 && a_href_value !== (a_href_value = /*link*/ ctx[12].url)) {
+			if (dirty & /*items2*/ 2 && a_href_value !== (a_href_value = /*link*/ ctx[12].url)) {
 				attr(a, "href", a_href_value);
 			}
 		},
@@ -860,11 +860,11 @@ function create_if_block(ctx) {
 			insert_hydration(target, img, anchor);
 		},
 		p(ctx, dirty) {
-			if (dirty & /*items2*/ 4 && !src_url_equal(img.src, img_src_value = /*item2*/ ctx[9].thumbnail.url)) {
+			if (dirty & /*items2*/ 2 && !src_url_equal(img.src, img_src_value = /*item2*/ ctx[9].thumbnail.url)) {
 				attr(img, "src", img_src_value);
 			}
 
-			if (dirty & /*items2*/ 4 && img_alt_value !== (img_alt_value = /*item2*/ ctx[9].thumbnail.alt)) {
+			if (dirty & /*items2*/ 2 && img_alt_value !== (img_alt_value = /*item2*/ ctx[9].thumbnail.alt)) {
 				attr(img, "alt", img_alt_value);
 			}
 		},
@@ -975,9 +975,9 @@ function create_each_block(ctx) {
 			append_hydration(li, t4);
 		},
 		p(ctx, dirty) {
-			if (dirty & /*items2*/ 4 && t0_value !== (t0_value = /*item2*/ ctx[9].title + "")) set_data(t0, t0_value);
-			if (dirty & /*items2*/ 4 && raw_value !== (raw_value = /*item2*/ ctx[9].description.html + "")) div0.innerHTML = raw_value;
-			if (dirty & /*items2*/ 4) {
+			if (dirty & /*items2*/ 2 && t0_value !== (t0_value = /*item2*/ ctx[9].title + "")) set_data(t0, t0_value);
+			if (dirty & /*items2*/ 2 && raw_value !== (raw_value = /*item2*/ ctx[9].description.html + "")) div0.innerHTML = raw_value;
+			if (dirty & /*items2*/ 2) {
 				each_value_1 = /*item2*/ ctx[9].links;
 				let i;
 
@@ -1053,7 +1053,7 @@ function create_fragment(ctx) {
 		each_blocks_1[i] = create_each_block_2(get_each_context_2(ctx, each_value_2, i));
 	}
 
-	let each_value = /*items2*/ ctx[2];
+	let each_value = /*items2*/ ctx[1];
 	let each_blocks = [];
 
 	for (let i = 0; i < each_value.length; i += 1) {
@@ -1065,7 +1065,7 @@ function create_fragment(ctx) {
 			section = element("section");
 			div5 = element("div");
 			h2 = element("h2");
-			t0 = text(/*heading*/ ctx[1]);
+			t0 = text(/*heading*/ ctx[2]);
 			t1 = space();
 			div0 = element("div");
 			button0 = element("button");
@@ -1103,7 +1103,7 @@ function create_fragment(ctx) {
 			var div5_nodes = children(div5);
 			h2 = claim_element(div5_nodes, "H2", { class: true });
 			var h2_nodes = children(h2);
-			t0 = claim_text(h2_nodes, /*heading*/ ctx[1]);
+			t0 = claim_text(h2_nodes, /*heading*/ ctx[2]);
 			h2_nodes.forEach(detach);
 			t1 = claim_space(div5_nodes);
 			div0 = claim_element(div5_nodes, "DIV", { class: true });
@@ -1228,7 +1228,7 @@ function create_fragment(ctx) {
 			}
 		},
 		p(ctx, [dirty]) {
-			if (dirty & /*heading*/ 2) set_data(t0, /*heading*/ ctx[1]);
+			if (dirty & /*heading*/ 4) set_data(t0, /*heading*/ ctx[2]);
 
 			if (dirty & /*activeTab*/ 8) {
 				toggle_class(button0, "active", /*activeTab*/ ctx[3] === 'tab1');
@@ -1269,8 +1269,8 @@ function create_fragment(ctx) {
 				toggle_class(div2, "active", /*activeTab*/ ctx[3] === 'tab1');
 			}
 
-			if (dirty & /*items2*/ 4) {
-				each_value = /*items2*/ ctx[2];
+			if (dirty & /*items2*/ 2) {
+				each_value = /*items2*/ ctx[1];
 				let i;
 
 				for (i = 0; i < each_value.length; i += 1) {
@@ -1311,8 +1311,8 @@ function create_fragment(ctx) {
 function instance($$self, $$props, $$invalidate) {
 	let { props } = $$props;
 	let { items } = $$props;
-	let { heading } = $$props;
 	let { items2 } = $$props;
+	let { heading } = $$props;
 	let activeTab = 'tab-content';
 
 	function changeTab(tab) {
@@ -1326,14 +1326,14 @@ function instance($$self, $$props, $$invalidate) {
 	$$self.$$set = $$props => {
 		if ('props' in $$props) $$invalidate(5, props = $$props.props);
 		if ('items' in $$props) $$invalidate(0, items = $$props.items);
-		if ('heading' in $$props) $$invalidate(1, heading = $$props.heading);
-		if ('items2' in $$props) $$invalidate(2, items2 = $$props.items2);
+		if ('items2' in $$props) $$invalidate(1, items2 = $$props.items2);
+		if ('heading' in $$props) $$invalidate(2, heading = $$props.heading);
 	};
 
 	return [
 		items,
-		heading,
 		items2,
+		heading,
 		activeTab,
 		changeTab,
 		props,
@@ -1350,8 +1350,8 @@ class Component extends SvelteComponent {
 		init(this, options, instance, create_fragment, safe_not_equal, {
 			props: 5,
 			items: 0,
-			heading: 1,
-			items2: 2
+			items2: 1,
+			heading: 2
 		});
 	}
 }
