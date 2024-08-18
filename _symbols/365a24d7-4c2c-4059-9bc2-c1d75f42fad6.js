@@ -1,4 +1,4 @@
-// Dark/LightMode - Updated August 15, 2024
+// Dark/LightMode - Updated August 18, 2024
 function noop() { }
 function run(fn) {
     return fn();
@@ -570,8 +570,8 @@ function create_fragment(ctx) {
 			this.h();
 		},
 		h() {
-			attr(button, "class", "toggle-switch svelte-to7a1z");
-			attr(section, "class", "section-container svelte-to7a1z");
+			attr(button, "class", "toggle-switch svelte-11gw92b");
+			attr(section, "class", "section-container svelte-11gw92b");
 		},
 		m(target, anchor) {
 			insert_hydration(target, section, anchor);

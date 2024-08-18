@@ -1,4 +1,4 @@
-// New Block - Updated August 15, 2024
+// New Block - Updated August 18, 2024
 function noop() { }
 function run(fn) {
     return fn();
@@ -569,7 +569,7 @@ function get_each_context_3(ctx, list, i) {
 	return child_ctx;
 }
 
-// (158:12) {#each item.links as {link}}
+// (132:12) {#each item.links as {link}}
 function create_each_block_3(ctx) {
 	let a;
 	let t_value = /*link*/ ctx[12].label + "";
@@ -610,7 +610,7 @@ function create_each_block_3(ctx) {
 	};
 }
 
-// (163:8) {#if item.thumbnail.url}
+// (137:8) {#if item.thumbnail.url}
 function create_if_block_1(ctx) {
 	let img;
 	let img_src_value;
@@ -628,7 +628,7 @@ function create_if_block_1(ctx) {
 		h() {
 			if (!src_url_equal(img.src, img_src_value = /*item*/ ctx[15].thumbnail.url)) attr(img, "src", img_src_value);
 			attr(img, "alt", img_alt_value = /*item*/ ctx[15].thumbnail.alt);
-			attr(img, "class", "svelte-qq7oqf");
+			attr(img, "class", "svelte-1e6tllv");
 		},
 		m(target, anchor) {
 			insert_hydration(target, img, anchor);
@@ -648,7 +648,7 @@ function create_if_block_1(ctx) {
 	};
 }
 
-// (152:6) {#each items as item}
+// (126:6) {#each items as item}
 function create_each_block_2(ctx) {
 	let li;
 	let div2;
@@ -721,11 +721,11 @@ function create_each_block_2(ctx) {
 			this.h();
 		},
 		h() {
-			attr(h3, "class", "title svelte-qq7oqf");
-			attr(div0, "class", "description svelte-qq7oqf");
-			attr(div1, "class", "links svelte-qq7oqf");
+			attr(h3, "class", "title svelte-1e6tllv");
+			attr(div0, "class", "description svelte-1e6tllv");
+			attr(div1, "class", "links svelte-1e6tllv");
 			attr(div2, "class", "post-info");
-			attr(li, "class", "svelte-qq7oqf");
+			attr(li, "class", "svelte-1e6tllv");
 		},
 		m(target, anchor) {
 			insert_hydration(target, li, anchor);
@@ -795,7 +795,7 @@ function create_each_block_2(ctx) {
 	};
 }
 
-// (182:14) {#each item2.links as {link}}
+// (156:14) {#each item2.links as {link}}
 function create_each_block_1(ctx) {
 	let a;
 	let t_value = /*link*/ ctx[12].label + "";
@@ -836,7 +836,7 @@ function create_each_block_1(ctx) {
 	};
 }
 
-// (187:10) {#if item2.thumbnail.url}
+// (161:10) {#if item2.thumbnail.url}
 function create_if_block(ctx) {
 	let img;
 	let img_src_value;
@@ -854,7 +854,7 @@ function create_if_block(ctx) {
 		h() {
 			if (!src_url_equal(img.src, img_src_value = /*item2*/ ctx[9].thumbnail.url)) attr(img, "src", img_src_value);
 			attr(img, "alt", img_alt_value = /*item2*/ ctx[9].thumbnail.alt);
-			attr(img, "class", "svelte-qq7oqf");
+			attr(img, "class", "svelte-1e6tllv");
 		},
 		m(target, anchor) {
 			insert_hydration(target, img, anchor);
@@ -874,7 +874,7 @@ function create_if_block(ctx) {
 	};
 }
 
-// (176:8) {#each items2 as item2}
+// (150:8) {#each items2 as item2}
 function create_each_block(ctx) {
 	let li;
 	let div2;
@@ -947,11 +947,11 @@ function create_each_block(ctx) {
 			this.h();
 		},
 		h() {
-			attr(h3, "class", "title svelte-qq7oqf");
-			attr(div0, "class", "description svelte-qq7oqf");
-			attr(div1, "class", "links svelte-qq7oqf");
+			attr(h3, "class", "title svelte-1e6tllv");
+			attr(div0, "class", "description svelte-1e6tllv");
+			attr(div1, "class", "links svelte-1e6tllv");
 			attr(div2, "class", "post-info");
-			attr(li, "class", "svelte-qq7oqf");
+			attr(li, "class", "svelte-1e6tllv");
 		},
 		m(target, anchor) {
 			insert_hydration(target, li, anchor);
@@ -1029,12 +1029,15 @@ function create_fragment(ctx) {
 	let t1;
 	let div0;
 	let button0;
+	let span0;
 	let t2;
 	let t3;
 	let button1;
+	let span1;
 	let t4;
 	let t5;
 	let button2;
+	let span2;
 	let t6;
 	let t7;
 	let div2;
@@ -1069,13 +1072,16 @@ function create_fragment(ctx) {
 			t1 = space();
 			div0 = element("div");
 			button0 = element("button");
+			span0 = element("span");
 			t2 = text("FrontEnd-sites");
 			t3 = space();
 			button1 = element("button");
-			t4 = text("Web Apps");
+			span1 = element("span");
+			t4 = text("Wordpress");
 			t5 = space();
 			button2 = element("button");
-			t6 = text("Wordpress");
+			span2 = element("span");
+			t6 = text("WebApps");
 			t7 = space();
 			div2 = element("div");
 			div1 = element("div");
@@ -1110,17 +1116,26 @@ function create_fragment(ctx) {
 			var div0_nodes = children(div0);
 			button0 = claim_element(div0_nodes, "BUTTON", { "data-tab": true, class: true });
 			var button0_nodes = children(button0);
-			t2 = claim_text(button0_nodes, "FrontEnd-sites");
+			span0 = claim_element(button0_nodes, "SPAN", {});
+			var span0_nodes = children(span0);
+			t2 = claim_text(span0_nodes, "FrontEnd-sites");
+			span0_nodes.forEach(detach);
 			button0_nodes.forEach(detach);
 			t3 = claim_space(div0_nodes);
 			button1 = claim_element(div0_nodes, "BUTTON", { class: true, "data-tab": true });
 			var button1_nodes = children(button1);
-			t4 = claim_text(button1_nodes, "Web Apps");
+			span1 = claim_element(button1_nodes, "SPAN", {});
+			var span1_nodes = children(span1);
+			t4 = claim_text(span1_nodes, "Wordpress");
+			span1_nodes.forEach(detach);
 			button1_nodes.forEach(detach);
 			t5 = claim_space(div0_nodes);
 			button2 = claim_element(div0_nodes, "BUTTON", { class: true, "data-tab": true });
 			var button2_nodes = children(button2);
-			t6 = claim_text(button2_nodes, "Wordpress");
+			span2 = claim_element(button2_nodes, "SPAN", {});
+			var span2_nodes = children(span2);
+			t6 = claim_text(span2_nodes, "WebApps");
+			span2_nodes.forEach(detach);
 			button2_nodes.forEach(detach);
 			div0_nodes.forEach(detach);
 			t7 = claim_space(div5_nodes);
@@ -1158,27 +1173,27 @@ function create_fragment(ctx) {
 			this.h();
 		},
 		h() {
-			attr(h2, "class", "svelte-qq7oqf");
+			attr(h2, "class", "svelte-1e6tllv");
 			attr(button0, "data-tab", "tab1");
-			attr(button0, "class", "svelte-qq7oqf");
+			attr(button0, "class", "svelte-1e6tllv");
 			toggle_class(button0, "active", /*activeTab*/ ctx[3] === 'tab1');
-			attr(button1, "class", "tab-button svelte-qq7oqf");
+			attr(button1, "class", "tab-button svelte-1e6tllv");
 			attr(button1, "data-tab", "tab2");
 			toggle_class(button1, "active", /*activeTab*/ ctx[3] === 'tab2');
-			attr(button2, "class", "tab-button svelte-qq7oqf");
+			attr(button2, "class", "tab-button svelte-1e6tllv");
 			attr(button2, "data-tab", "tab3");
 			toggle_class(button2, "active", /*activeTab*/ ctx[3] === 'tab3');
-			attr(div0, "class", "tabs svelte-qq7oqf");
-			attr(ul0, "class", "items svelte-qq7oqf");
-			attr(div2, "class", "tab-content svelte-qq7oqf");
+			attr(div0, "class", "tabs svelte-1e6tllv");
+			attr(ul0, "class", "items svelte-1e6tllv");
+			attr(div2, "class", "tab-content svelte-1e6tllv");
 			attr(div2, "id", "tab1");
 			toggle_class(div2, "active", /*activeTab*/ ctx[3] === 'tab1');
 			attr(ul1, "class", "items2");
-			attr(div4, "class", "tab-content svelte-qq7oqf");
+			attr(div4, "class", "tab-content svelte-1e6tllv");
 			attr(div4, "id", "tab2");
 			toggle_class(div4, "active", /*activeTab*/ ctx[3] === 'tab2');
-			attr(div5, "class", "featured-projects svelte-qq7oqf");
-			attr(section, "class", "container svelte-qq7oqf");
+			attr(div5, "class", "featured-projects svelte-1e6tllv");
+			attr(section, "class", "container svelte-1e6tllv");
 		},
 		m(target, anchor) {
 			insert_hydration(target, section, anchor);
@@ -1188,13 +1203,16 @@ function create_fragment(ctx) {
 			append_hydration(div5, t1);
 			append_hydration(div5, div0);
 			append_hydration(div0, button0);
-			append_hydration(button0, t2);
+			append_hydration(button0, span0);
+			append_hydration(span0, t2);
 			append_hydration(div0, t3);
 			append_hydration(div0, button1);
-			append_hydration(button1, t4);
+			append_hydration(button1, span1);
+			append_hydration(span1, t4);
 			append_hydration(div0, t5);
 			append_hydration(div0, button2);
-			append_hydration(button2, t6);
+			append_hydration(button2, span2);
+			append_hydration(span2, t6);
 			append_hydration(div5, t7);
 			append_hydration(div5, div2);
 			append_hydration(div2, div1);
