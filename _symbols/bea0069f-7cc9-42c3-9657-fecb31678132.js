@@ -1,4 +1,4 @@
-// New Block - Updated August 18, 2024
+// New Block - Updated November 28, 2024
 function noop() { }
 function run(fn) {
     return fn();
@@ -628,7 +628,7 @@ function create_if_block_1(ctx) {
 		h() {
 			if (!src_url_equal(img.src, img_src_value = /*item*/ ctx[15].thumbnail.url)) attr(img, "src", img_src_value);
 			attr(img, "alt", img_alt_value = /*item*/ ctx[15].thumbnail.alt);
-			attr(img, "class", "svelte-1e6tllv");
+			attr(img, "class", "svelte-emvm76");
 		},
 		m(target, anchor) {
 			insert_hydration(target, img, anchor);
@@ -721,11 +721,11 @@ function create_each_block_2(ctx) {
 			this.h();
 		},
 		h() {
-			attr(h3, "class", "title svelte-1e6tllv");
-			attr(div0, "class", "description svelte-1e6tllv");
-			attr(div1, "class", "links svelte-1e6tllv");
+			attr(h3, "class", "title svelte-emvm76");
+			attr(div0, "class", "description svelte-emvm76");
+			attr(div1, "class", "links svelte-emvm76");
 			attr(div2, "class", "post-info");
-			attr(li, "class", "svelte-1e6tllv");
+			attr(li, "class", "svelte-emvm76");
 		},
 		m(target, anchor) {
 			insert_hydration(target, li, anchor);
@@ -854,7 +854,7 @@ function create_if_block(ctx) {
 		h() {
 			if (!src_url_equal(img.src, img_src_value = /*item2*/ ctx[9].thumbnail.url)) attr(img, "src", img_src_value);
 			attr(img, "alt", img_alt_value = /*item2*/ ctx[9].thumbnail.alt);
-			attr(img, "class", "svelte-1e6tllv");
+			attr(img, "class", "svelte-emvm76");
 		},
 		m(target, anchor) {
 			insert_hydration(target, img, anchor);
@@ -947,11 +947,11 @@ function create_each_block(ctx) {
 			this.h();
 		},
 		h() {
-			attr(h3, "class", "title svelte-1e6tllv");
-			attr(div0, "class", "description svelte-1e6tllv");
-			attr(div1, "class", "links svelte-1e6tllv");
+			attr(h3, "class", "title svelte-emvm76");
+			attr(div0, "class", "description svelte-emvm76");
+			attr(div1, "class", "links svelte-emvm76");
 			attr(div2, "class", "post-info");
-			attr(li, "class", "svelte-1e6tllv");
+			attr(li, "class", "svelte-emvm76");
 		},
 		m(target, anchor) {
 			insert_hydration(target, li, anchor);
@@ -1173,27 +1173,27 @@ function create_fragment(ctx) {
 			this.h();
 		},
 		h() {
-			attr(h2, "class", "svelte-1e6tllv");
+			attr(h2, "class", "svelte-emvm76");
 			attr(button0, "data-tab", "tab1");
-			attr(button0, "class", "svelte-1e6tllv");
+			attr(button0, "class", "svelte-emvm76");
 			toggle_class(button0, "active", /*activeTab*/ ctx[3] === 'tab1');
-			attr(button1, "class", "tab-button svelte-1e6tllv");
+			attr(button1, "class", "tab-button svelte-emvm76");
 			attr(button1, "data-tab", "tab2");
 			toggle_class(button1, "active", /*activeTab*/ ctx[3] === 'tab2');
-			attr(button2, "class", "tab-button svelte-1e6tllv");
+			attr(button2, "class", "tab-button svelte-emvm76");
 			attr(button2, "data-tab", "tab3");
 			toggle_class(button2, "active", /*activeTab*/ ctx[3] === 'tab3');
-			attr(div0, "class", "tabs svelte-1e6tllv");
-			attr(ul0, "class", "items svelte-1e6tllv");
-			attr(div2, "class", "tab-content svelte-1e6tllv");
+			attr(div0, "class", "tabs svelte-emvm76");
+			attr(ul0, "class", "items svelte-emvm76");
+			attr(div2, "class", "tab-content svelte-emvm76");
 			attr(div2, "id", "tab1");
 			toggle_class(div2, "active", /*activeTab*/ ctx[3] === 'tab1');
 			attr(ul1, "class", "items2");
-			attr(div4, "class", "tab-content svelte-1e6tllv");
+			attr(div4, "class", "tab-content svelte-emvm76");
 			attr(div4, "id", "tab2");
 			toggle_class(div4, "active", /*activeTab*/ ctx[3] === 'tab2');
-			attr(div5, "class", "featured-projects svelte-1e6tllv");
-			attr(section, "class", "container svelte-1e6tllv");
+			attr(div5, "class", "featured-projects svelte-emvm76");
+			attr(section, "class", "container svelte-emvm76");
 		},
 		m(target, anchor) {
 			insert_hydration(target, section, anchor);
