@@ -1,4 +1,4 @@
-// New Block - Updated November 28, 2024
+// New Block - Updated December 4, 2024
 function noop() { }
 function run(fn) {
     return fn();
@@ -569,7 +569,7 @@ function get_each_context_3(ctx, list, i) {
 	return child_ctx;
 }
 
-// (132:12) {#each item.links as {link}}
+// (131:12) {#each item.links as {link}}
 function create_each_block_3(ctx) {
 	let a;
 	let t_value = /*link*/ ctx[12].label + "";
@@ -610,7 +610,7 @@ function create_each_block_3(ctx) {
 	};
 }
 
-// (137:8) {#if item.thumbnail.url}
+// (136:8) {#if item.thumbnail.url}
 function create_if_block_1(ctx) {
 	let img;
 	let img_src_value;
@@ -628,7 +628,7 @@ function create_if_block_1(ctx) {
 		h() {
 			if (!src_url_equal(img.src, img_src_value = /*item*/ ctx[15].thumbnail.url)) attr(img, "src", img_src_value);
 			attr(img, "alt", img_alt_value = /*item*/ ctx[15].thumbnail.alt);
-			attr(img, "class", "svelte-emvm76");
+			attr(img, "class", "svelte-qgerd8");
 		},
 		m(target, anchor) {
 			insert_hydration(target, img, anchor);
@@ -648,7 +648,7 @@ function create_if_block_1(ctx) {
 	};
 }
 
-// (126:6) {#each items as item}
+// (125:6) {#each items as item}
 function create_each_block_2(ctx) {
 	let li;
 	let div2;
@@ -721,11 +721,11 @@ function create_each_block_2(ctx) {
 			this.h();
 		},
 		h() {
-			attr(h3, "class", "title svelte-emvm76");
-			attr(div0, "class", "description svelte-emvm76");
-			attr(div1, "class", "links svelte-emvm76");
+			attr(h3, "class", "title svelte-qgerd8");
+			attr(div0, "class", "description svelte-qgerd8");
+			attr(div1, "class", "links svelte-qgerd8");
 			attr(div2, "class", "post-info");
-			attr(li, "class", "svelte-emvm76");
+			attr(li, "class", "svelte-qgerd8");
 		},
 		m(target, anchor) {
 			insert_hydration(target, li, anchor);
@@ -795,7 +795,7 @@ function create_each_block_2(ctx) {
 	};
 }
 
-// (156:14) {#each item2.links as {link}}
+// (155:14) {#each item2.links as {link}}
 function create_each_block_1(ctx) {
 	let a;
 	let t_value = /*link*/ ctx[12].label + "";
@@ -836,7 +836,7 @@ function create_each_block_1(ctx) {
 	};
 }
 
-// (161:10) {#if item2.thumbnail.url}
+// (160:10) {#if item2.thumbnail.url}
 function create_if_block(ctx) {
 	let img;
 	let img_src_value;
@@ -854,7 +854,7 @@ function create_if_block(ctx) {
 		h() {
 			if (!src_url_equal(img.src, img_src_value = /*item2*/ ctx[9].thumbnail.url)) attr(img, "src", img_src_value);
 			attr(img, "alt", img_alt_value = /*item2*/ ctx[9].thumbnail.alt);
-			attr(img, "class", "svelte-emvm76");
+			attr(img, "class", "svelte-qgerd8");
 		},
 		m(target, anchor) {
 			insert_hydration(target, img, anchor);
@@ -874,7 +874,7 @@ function create_if_block(ctx) {
 	};
 }
 
-// (150:8) {#each items2 as item2}
+// (149:8) {#each items2 as item2}
 function create_each_block(ctx) {
 	let li;
 	let div2;
@@ -947,11 +947,11 @@ function create_each_block(ctx) {
 			this.h();
 		},
 		h() {
-			attr(h3, "class", "title svelte-emvm76");
-			attr(div0, "class", "description svelte-emvm76");
-			attr(div1, "class", "links svelte-emvm76");
+			attr(h3, "class", "title svelte-qgerd8");
+			attr(div0, "class", "description svelte-qgerd8");
+			attr(div1, "class", "links svelte-qgerd8");
 			attr(div2, "class", "post-info");
-			attr(li, "class", "svelte-emvm76");
+			attr(li, "class", "svelte-qgerd8");
 		},
 		m(target, anchor) {
 			insert_hydration(target, li, anchor);
@@ -1173,27 +1173,27 @@ function create_fragment(ctx) {
 			this.h();
 		},
 		h() {
-			attr(h2, "class", "svelte-emvm76");
+			attr(h2, "class", "svelte-qgerd8");
 			attr(button0, "data-tab", "tab1");
-			attr(button0, "class", "svelte-emvm76");
+			attr(button0, "class", "svelte-qgerd8");
 			toggle_class(button0, "active", /*activeTab*/ ctx[3] === 'tab1');
-			attr(button1, "class", "tab-button svelte-emvm76");
+			attr(button1, "class", "tab-button svelte-qgerd8");
 			attr(button1, "data-tab", "tab2");
 			toggle_class(button1, "active", /*activeTab*/ ctx[3] === 'tab2');
-			attr(button2, "class", "tab-button svelte-emvm76");
+			attr(button2, "class", "tab-button svelte-qgerd8");
 			attr(button2, "data-tab", "tab3");
 			toggle_class(button2, "active", /*activeTab*/ ctx[3] === 'tab3');
-			attr(div0, "class", "tabs svelte-emvm76");
-			attr(ul0, "class", "items svelte-emvm76");
-			attr(div2, "class", "tab-content svelte-emvm76");
+			attr(div0, "class", "tabs svelte-qgerd8");
+			attr(ul0, "class", "items svelte-qgerd8");
+			attr(div2, "class", "tab-content svelte-qgerd8");
 			attr(div2, "id", "tab1");
 			toggle_class(div2, "active", /*activeTab*/ ctx[3] === 'tab1');
 			attr(ul1, "class", "items2");
-			attr(div4, "class", "tab-content svelte-emvm76");
+			attr(div4, "class", "tab-content svelte-qgerd8");
 			attr(div4, "id", "tab2");
 			toggle_class(div4, "active", /*activeTab*/ ctx[3] === 'tab2');
-			attr(div5, "class", "featured-projects svelte-emvm76");
-			attr(section, "class", "container svelte-emvm76");
+			attr(div5, "class", "featured-projects svelte-qgerd8");
+			attr(section, "class", "section-container svelte-qgerd8");
 		},
 		m(target, anchor) {
 			insert_hydration(target, section, anchor);
