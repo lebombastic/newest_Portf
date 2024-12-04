@@ -544,17 +544,17 @@ class SvelteComponent {
 
 function get_each_context(ctx, list, i) {
 	const child_ctx = ctx.slice();
-	child_ctx[6] = list[i];
+	child_ctx[7] = list[i];
 	return child_ctx;
 }
 
 function get_each_context_1(ctx, list, i) {
 	const child_ctx = ctx.slice();
-	child_ctx[9] = list[i].link;
+	child_ctx[10] = list[i].link;
 	return child_ctx;
 }
 
-// (241:2) {#if activeTab === 'websites'}
+// (224:2) {#if activeTab === 'websites'}
 function create_if_block(ctx) {
 	let ul;
 	let each_value = /*items*/ ctx[0];
@@ -586,7 +586,7 @@ function create_if_block(ctx) {
 			this.h();
 		},
 		h() {
-			attr(ul, "class", "items svelte-awvp9s");
+			attr(ul, "class", "items svelte-1ei4udm");
 		},
 		m(target, anchor) {
 			insert_hydration(target, ul, anchor);
@@ -628,10 +628,10 @@ function create_if_block(ctx) {
 	};
 }
 
-// (249:12) {#each item.links as {link}}
+// (232:12) {#each item.links as {link}}
 function create_each_block_1(ctx) {
 	let a;
-	let t_value = /*link*/ ctx[9].label + "";
+	let t_value = /*link*/ ctx[10].label + "";
 	let t;
 	let a_href_value;
 
@@ -650,16 +650,16 @@ function create_each_block_1(ctx) {
 		},
 		h() {
 			attr(a, "class", "link");
-			attr(a, "href", a_href_value = /*link*/ ctx[9].url);
+			attr(a, "href", a_href_value = /*link*/ ctx[10].url);
 		},
 		m(target, anchor) {
 			insert_hydration(target, a, anchor);
 			append_hydration(a, t);
 		},
 		p(ctx, dirty) {
-			if (dirty & /*items*/ 1 && t_value !== (t_value = /*link*/ ctx[9].label + "")) set_data(t, t_value);
+			if (dirty & /*items*/ 1 && t_value !== (t_value = /*link*/ ctx[10].label + "")) set_data(t, t_value);
 
-			if (dirty & /*items*/ 1 && a_href_value !== (a_href_value = /*link*/ ctx[9].url)) {
+			if (dirty & /*items*/ 1 && a_href_value !== (a_href_value = /*link*/ ctx[10].url)) {
 				attr(a, "href", a_href_value);
 			}
 		},
@@ -669,7 +669,7 @@ function create_each_block_1(ctx) {
 	};
 }
 
-// (254:8) {#if item.thumbnail.url}
+// (237:8) {#if item.thumbnail.url}
 function create_if_block_1(ctx) {
 	let img;
 	let img_src_value;
@@ -685,19 +685,19 @@ function create_if_block_1(ctx) {
 			this.h();
 		},
 		h() {
-			if (!src_url_equal(img.src, img_src_value = /*item*/ ctx[6].thumbnail.url)) attr(img, "src", img_src_value);
-			attr(img, "alt", img_alt_value = /*item*/ ctx[6].thumbnail.alt);
-			attr(img, "class", "svelte-awvp9s");
+			if (!src_url_equal(img.src, img_src_value = /*item*/ ctx[7].thumbnail.url)) attr(img, "src", img_src_value);
+			attr(img, "alt", img_alt_value = /*item*/ ctx[7].thumbnail.alt);
+			attr(img, "class", "svelte-1ei4udm");
 		},
 		m(target, anchor) {
 			insert_hydration(target, img, anchor);
 		},
 		p(ctx, dirty) {
-			if (dirty & /*items*/ 1 && !src_url_equal(img.src, img_src_value = /*item*/ ctx[6].thumbnail.url)) {
+			if (dirty & /*items*/ 1 && !src_url_equal(img.src, img_src_value = /*item*/ ctx[7].thumbnail.url)) {
 				attr(img, "src", img_src_value);
 			}
 
-			if (dirty & /*items*/ 1 && img_alt_value !== (img_alt_value = /*item*/ ctx[6].thumbnail.alt)) {
+			if (dirty & /*items*/ 1 && img_alt_value !== (img_alt_value = /*item*/ ctx[7].thumbnail.alt)) {
 				attr(img, "alt", img_alt_value);
 			}
 		},
@@ -707,28 +707,28 @@ function create_if_block_1(ctx) {
 	};
 }
 
-// (243:6) {#each items as item}
+// (226:6) {#each items as item}
 function create_each_block(ctx) {
 	let li;
 	let div2;
 	let h3;
-	let t0_value = /*item*/ ctx[6].title + "";
+	let t0_value = /*item*/ ctx[7].title + "";
 	let t0;
 	let t1;
 	let div0;
-	let raw_value = /*item*/ ctx[6].description.html + "";
+	let raw_value = /*item*/ ctx[7].description.html + "";
 	let t2;
 	let div1;
 	let t3;
 	let t4;
-	let each_value_1 = /*item*/ ctx[6].links;
+	let each_value_1 = /*item*/ ctx[7].links;
 	let each_blocks = [];
 
 	for (let i = 0; i < each_value_1.length; i += 1) {
 		each_blocks[i] = create_each_block_1(get_each_context_1(ctx, each_value_1, i));
 	}
 
-	let if_block = /*item*/ ctx[6].thumbnail.url && create_if_block_1(ctx);
+	let if_block = /*item*/ ctx[7].thumbnail.url && create_if_block_1(ctx);
 
 	return {
 		c() {
@@ -780,10 +780,10 @@ function create_each_block(ctx) {
 			this.h();
 		},
 		h() {
-			attr(h3, "class", "title svelte-awvp9s");
-			attr(div0, "class", "description svelte-awvp9s");
-			attr(div1, "class", "links svelte-awvp9s");
-			attr(li, "class", "svelte-awvp9s");
+			attr(h3, "class", "title svelte-1ei4udm");
+			attr(div0, "class", "description svelte-1ei4udm");
+			attr(div1, "class", "links svelte-1ei4udm");
+			attr(li, "class", "svelte-1ei4udm");
 		},
 		m(target, anchor) {
 			insert_hydration(target, li, anchor);
@@ -807,10 +807,10 @@ function create_each_block(ctx) {
 			append_hydration(li, t4);
 		},
 		p(ctx, dirty) {
-			if (dirty & /*items*/ 1 && t0_value !== (t0_value = /*item*/ ctx[6].title + "")) set_data(t0, t0_value);
-			if (dirty & /*items*/ 1 && raw_value !== (raw_value = /*item*/ ctx[6].description.html + "")) div0.innerHTML = raw_value;
+			if (dirty & /*items*/ 1 && t0_value !== (t0_value = /*item*/ ctx[7].title + "")) set_data(t0, t0_value);
+			if (dirty & /*items*/ 1 && raw_value !== (raw_value = /*item*/ ctx[7].description.html + "")) div0.innerHTML = raw_value;
 			if (dirty & /*items*/ 1) {
-				each_value_1 = /*item*/ ctx[6].links;
+				each_value_1 = /*item*/ ctx[7].links;
 				let i;
 
 				for (i = 0; i < each_value_1.length; i += 1) {
@@ -832,7 +832,7 @@ function create_each_block(ctx) {
 				each_blocks.length = each_value_1.length;
 			}
 
-			if (/*item*/ ctx[6].thumbnail.url) {
+			if (/*item*/ ctx[7].thumbnail.url) {
 				if (if_block) {
 					if_block.p(ctx, dirty);
 				} else {
@@ -868,12 +868,10 @@ function create_fragment(ctx) {
 	let t4;
 	let button1_class_value;
 	let t5;
-	let select;
-	let option0;
+	let button2;
 	let t6;
-	let option1;
+	let button2_class_value;
 	let t7;
-	let t8;
 	let mounted;
 	let dispose;
 	let if_block = /*activeTab*/ ctx[1] === 'websites' && create_if_block(ctx);
@@ -892,12 +890,9 @@ function create_fragment(ctx) {
 			button1 = element("button");
 			t4 = text("Web Apps");
 			t5 = space();
-			select = element("select");
-			option0 = element("option");
-			t6 = text("Websites");
-			option1 = element("option");
-			t7 = text("Web Apps");
-			t8 = space();
+			button2 = element("button");
+			t6 = text("WordPress");
+			t7 = space();
 			if (if_block) if_block.c();
 			this.h();
 		},
@@ -922,36 +917,25 @@ function create_fragment(ctx) {
 			var button1_nodes = children(button1);
 			t4 = claim_text(button1_nodes, "Web Apps");
 			button1_nodes.forEach(detach);
+			t5 = claim_space(div0_nodes);
+			button2 = claim_element(div0_nodes, "BUTTON", { class: true });
+			var button2_nodes = children(button2);
+			t6 = claim_text(button2_nodes, "WordPress");
+			button2_nodes.forEach(detach);
 			div0_nodes.forEach(detach);
 			div1_nodes.forEach(detach);
-			t5 = claim_space(div2_nodes);
-			select = claim_element(div2_nodes, "SELECT", { class: true });
-			var select_nodes = children(select);
-			option0 = claim_element(select_nodes, "OPTION", {});
-			var option0_nodes = children(option0);
-			t6 = claim_text(option0_nodes, "Websites");
-			option0_nodes.forEach(detach);
-			option1 = claim_element(select_nodes, "OPTION", {});
-			var option1_nodes = children(option1);
-			t7 = claim_text(option1_nodes, "Web Apps");
-			option1_nodes.forEach(detach);
-			select_nodes.forEach(detach);
-			t8 = claim_space(div2_nodes);
+			t7 = claim_space(div2_nodes);
 			if (if_block) if_block.l(div2_nodes);
 			div2_nodes.forEach(detach);
 			this.h();
 		},
 		h() {
-			attr(h3, "class", "heading svelte-wjdl6d svelte-awvp9s");
-			attr(button0, "class", button0_class_value = "svelte-wjdl6d " + (/*activeTab*/ ctx[1] === 'websites' ? 'active' : '') + " svelte-awvp9s");
-			attr(button1, "class", button1_class_value = "svelte-wjdl6d " + (/*activeTab*/ ctx[1] === 'webApps' ? 'active' : '') + " svelte-awvp9s");
+			attr(h3, "class", "heading cont");
+			attr(button0, "class", button0_class_value = "cont " + (/*activeTab*/ ctx[1] === 'websites' ? 'active' : ''));
+			attr(button1, "class", button1_class_value = "cont " + (/*activeTab*/ ctx[1] === 'webApps' ? 'active' : ''));
+			attr(button2, "class", button2_class_value = "cont " + (/*activeTab*/ ctx[1] === 'wordpress' ? 'active' : ''));
 			attr(div0, "class", "tabs");
-			attr(div1, "class", "tabs svelte-wjdl6d svelte-awvp9s");
-			option0.__value = "0";
-			option0.value = option0.__value;
-			option1.__value = "1";
-			option1.value = option1.__value;
-			attr(select, "class", "svelte-wjdl6d svelte-awvp9s");
+			attr(div1, "class", "tabs cont svelte-1ei4udm");
 			attr(div2, "class", "section-container");
 		},
 		m(target, anchor) {
@@ -966,31 +950,33 @@ function create_fragment(ctx) {
 			append_hydration(div0, t3);
 			append_hydration(div0, button1);
 			append_hydration(button1, t4);
-			append_hydration(div2, t5);
-			append_hydration(div2, select);
-			append_hydration(select, option0);
-			append_hydration(option0, t6);
-			append_hydration(select, option1);
-			append_hydration(option1, t7);
-			append_hydration(div2, t8);
+			append_hydration(div0, t5);
+			append_hydration(div0, button2);
+			append_hydration(button2, t6);
+			append_hydration(div2, t7);
 			if (if_block) if_block.m(div2, null);
 
 			if (!mounted) {
 				dispose = [
 					listen(button0, "click", /*click_handler*/ ctx[4]),
-					listen(button1, "click", /*click_handler_1*/ ctx[5])
+					listen(button1, "click", /*click_handler_1*/ ctx[5]),
+					listen(button2, "click", /*click_handler_2*/ ctx[6])
 				];
 
 				mounted = true;
 			}
 		},
 		p(ctx, [dirty]) {
-			if (dirty & /*activeTab*/ 2 && button0_class_value !== (button0_class_value = "svelte-wjdl6d " + (/*activeTab*/ ctx[1] === 'websites' ? 'active' : '') + " svelte-awvp9s")) {
+			if (dirty & /*activeTab*/ 2 && button0_class_value !== (button0_class_value = "cont " + (/*activeTab*/ ctx[1] === 'websites' ? 'active' : ''))) {
 				attr(button0, "class", button0_class_value);
 			}
 
-			if (dirty & /*activeTab*/ 2 && button1_class_value !== (button1_class_value = "svelte-wjdl6d " + (/*activeTab*/ ctx[1] === 'webApps' ? 'active' : '') + " svelte-awvp9s")) {
+			if (dirty & /*activeTab*/ 2 && button1_class_value !== (button1_class_value = "cont " + (/*activeTab*/ ctx[1] === 'webApps' ? 'active' : ''))) {
 				attr(button1, "class", button1_class_value);
+			}
+
+			if (dirty & /*activeTab*/ 2 && button2_class_value !== (button2_class_value = "cont " + (/*activeTab*/ ctx[1] === 'wordpress' ? 'active' : ''))) {
+				attr(button2, "class", button2_class_value);
 			}
 
 			if (/*activeTab*/ ctx[1] === 'websites') {
@@ -1024,6 +1010,7 @@ function instance($$self, $$props, $$invalidate) {
 	let activeTab = 'tabs';
 	const click_handler = () => $$invalidate(1, activeTab = 'websites');
 	const click_handler_1 = () => $$invalidate(1, activeTab = 'webApps');
+	const click_handler_2 = () => $$invalidate(1, activeTab = 'wordpress');
 
 	$$self.$$set = $$props => {
 		if ('props' in $$props) $$invalidate(2, props = $$props.props);
@@ -1031,7 +1018,15 @@ function instance($$self, $$props, $$invalidate) {
 		if ('heading' in $$props) $$invalidate(3, heading = $$props.heading);
 	};
 
-	return [items, activeTab, props, heading, click_handler, click_handler_1];
+	return [
+		items,
+		activeTab,
+		props,
+		heading,
+		click_handler,
+		click_handler_1,
+		click_handler_2
+	];
 }
 
 class Component extends SvelteComponent {
