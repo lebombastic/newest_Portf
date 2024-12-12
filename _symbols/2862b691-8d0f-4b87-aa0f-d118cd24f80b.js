@@ -573,7 +573,7 @@ function get_each_context_3(ctx, list, i) {
 function create_if_block_2(ctx) {
 	let ul;
 	let t;
-	let each_value_2 = /*items*/ ctx[0];
+	let each_value_2 = /*items*/ ctx[1];
 	let each_blocks = [];
 
 	for (let i = 0; i < each_value_2.length; i += 1) {
@@ -618,8 +618,8 @@ function create_if_block_2(ctx) {
 			insert_hydration(target, t, anchor);
 		},
 		p(ctx, dirty) {
-			if (dirty & /*items*/ 1) {
-				each_value_2 = /*items*/ ctx[0];
+			if (dirty & /*items*/ 2) {
+				each_value_2 = /*items*/ ctx[1];
 				let i;
 
 				for (i = 0; i < each_value_2.length; i += 1) {
@@ -678,9 +678,9 @@ function create_each_block_3(ctx) {
 			append_hydration(a, t);
 		},
 		p(ctx, dirty) {
-			if (dirty & /*items*/ 1 && t_value !== (t_value = /*link*/ ctx[10].label + "")) set_data(t, t_value);
+			if (dirty & /*items*/ 2 && t_value !== (t_value = /*link*/ ctx[10].label + "")) set_data(t, t_value);
 
-			if (dirty & /*items*/ 1 && a_href_value !== (a_href_value = /*link*/ ctx[10].url)) {
+			if (dirty & /*items*/ 2 && a_href_value !== (a_href_value = /*link*/ ctx[10].url)) {
 				attr(a, "href", a_href_value);
 			}
 		},
@@ -714,11 +714,11 @@ function create_if_block_3(ctx) {
 			insert_hydration(target, img, anchor);
 		},
 		p(ctx, dirty) {
-			if (dirty & /*items*/ 1 && !src_url_equal(img.src, img_src_value = /*item*/ ctx[7].thumbnail.url)) {
+			if (dirty & /*items*/ 2 && !src_url_equal(img.src, img_src_value = /*item*/ ctx[7].thumbnail.url)) {
 				attr(img, "src", img_src_value);
 			}
 
-			if (dirty & /*items*/ 1 && img_alt_value !== (img_alt_value = /*item*/ ctx[7].thumbnail.alt)) {
+			if (dirty & /*items*/ 2 && img_alt_value !== (img_alt_value = /*item*/ ctx[7].thumbnail.alt)) {
 				attr(img, "alt", img_alt_value);
 			}
 		},
@@ -828,9 +828,9 @@ function create_each_block_2(ctx) {
 			append_hydration(li, t4);
 		},
 		p(ctx, dirty) {
-			if (dirty & /*items*/ 1 && t0_value !== (t0_value = /*item*/ ctx[7].title + "")) set_data(t0, t0_value);
-			if (dirty & /*items*/ 1 && raw_value !== (raw_value = /*item*/ ctx[7].description.html + "")) div0.innerHTML = raw_value;
-			if (dirty & /*items*/ 1) {
+			if (dirty & /*items*/ 2 && t0_value !== (t0_value = /*item*/ ctx[7].title + "")) set_data(t0, t0_value);
+			if (dirty & /*items*/ 2 && raw_value !== (raw_value = /*item*/ ctx[7].description.html + "")) div0.innerHTML = raw_value;
+			if (dirty & /*items*/ 2) {
 				each_value_3 = /*item*/ ctx[7].links;
 				let i;
 
@@ -877,7 +877,7 @@ function create_each_block_2(ctx) {
 // (253:7) {#if activeTab === 'wordpress'}
 function create_if_block(ctx) {
 	let ul;
-	let each_value = /*wp*/ ctx[1];
+	let each_value = /*wp*/ ctx[0];
 	let each_blocks = [];
 
 	for (let i = 0; i < each_value.length; i += 1) {
@@ -918,8 +918,8 @@ function create_if_block(ctx) {
 			}
 		},
 		p(ctx, dirty) {
-			if (dirty & /*wp*/ 2) {
-				each_value = /*wp*/ ctx[1];
+			if (dirty & /*wp*/ 1) {
+				each_value = /*wp*/ ctx[0];
 				let i;
 
 				for (i = 0; i < each_value.length; i += 1) {
@@ -977,9 +977,9 @@ function create_each_block_1(ctx) {
 			append_hydration(a, t);
 		},
 		p(ctx, dirty) {
-			if (dirty & /*wp*/ 2 && t_value !== (t_value = /*link*/ ctx[10].label + "")) set_data(t, t_value);
+			if (dirty & /*wp*/ 1 && t_value !== (t_value = /*link*/ ctx[10].label + "")) set_data(t, t_value);
 
-			if (dirty & /*wp*/ 2 && a_href_value !== (a_href_value = /*link*/ ctx[10].url)) {
+			if (dirty & /*wp*/ 1 && a_href_value !== (a_href_value = /*link*/ ctx[10].url)) {
 				attr(a, "href", a_href_value);
 			}
 		},
@@ -1013,11 +1013,11 @@ function create_if_block_1(ctx) {
 			insert_hydration(target, img, anchor);
 		},
 		p(ctx, dirty) {
-			if (dirty & /*wp*/ 2 && !src_url_equal(img.src, img_src_value = /*item*/ ctx[7].thumbnail.url)) {
+			if (dirty & /*wp*/ 1 && !src_url_equal(img.src, img_src_value = /*item*/ ctx[7].thumbnail.url)) {
 				attr(img, "src", img_src_value);
 			}
 
-			if (dirty & /*wp*/ 2 && img_alt_value !== (img_alt_value = /*item*/ ctx[7].thumbnail.alt)) {
+			if (dirty & /*wp*/ 1 && img_alt_value !== (img_alt_value = /*item*/ ctx[7].thumbnail.alt)) {
 				attr(img, "alt", img_alt_value);
 			}
 		},
@@ -1127,9 +1127,9 @@ function create_each_block(ctx) {
 			append_hydration(li, t4);
 		},
 		p(ctx, dirty) {
-			if (dirty & /*wp*/ 2 && t0_value !== (t0_value = /*item*/ ctx[7].title + "")) set_data(t0, t0_value);
-			if (dirty & /*wp*/ 2 && raw_value !== (raw_value = /*item*/ ctx[7].description.html + "")) div0.innerHTML = raw_value;
-			if (dirty & /*wp*/ 2) {
+			if (dirty & /*wp*/ 1 && t0_value !== (t0_value = /*item*/ ctx[7].title + "")) set_data(t0, t0_value);
+			if (dirty & /*wp*/ 1 && raw_value !== (raw_value = /*item*/ ctx[7].description.html + "")) div0.innerHTML = raw_value;
+			if (dirty & /*wp*/ 1) {
 				each_value_1 = /*item*/ ctx[7].links;
 				let i;
 
@@ -1340,8 +1340,8 @@ function create_fragment(ctx) {
 
 function instance($$self, $$props, $$invalidate) {
 	let { props } = $$props;
-	let { items } = $$props;
 	let { wp } = $$props;
+	let { items } = $$props;
 	let activeTab = 'tabs';
 	const click_handler = () => $$invalidate(2, activeTab = 'websites');
 	const click_handler_1 = () => $$invalidate(2, activeTab = 'webApps');
@@ -1349,17 +1349,17 @@ function instance($$self, $$props, $$invalidate) {
 
 	$$self.$$set = $$props => {
 		if ('props' in $$props) $$invalidate(3, props = $$props.props);
-		if ('items' in $$props) $$invalidate(0, items = $$props.items);
-		if ('wp' in $$props) $$invalidate(1, wp = $$props.wp);
+		if ('wp' in $$props) $$invalidate(0, wp = $$props.wp);
+		if ('items' in $$props) $$invalidate(1, items = $$props.items);
 	};
 
-	return [items, wp, activeTab, props, click_handler, click_handler_1, click_handler_2];
+	return [wp, items, activeTab, props, click_handler, click_handler_1, click_handler_2];
 }
 
 class Component extends SvelteComponent {
 	constructor(options) {
 		super();
-		init(this, options, instance, create_fragment, safe_not_equal, { props: 3, items: 0, wp: 1 });
+		init(this, options, instance, create_fragment, safe_not_equal, { props: 3, wp: 0, items: 1 });
 	}
 }
 
