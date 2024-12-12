@@ -554,7 +554,7 @@ function get_each_context_1(ctx, list, i) {
 	return child_ctx;
 }
 
-// (232:2) {#if activeTab === 'websites'}
+// (233:2) {#if activeTab === 'websites'}
 function create_if_block(ctx) {
 	let ul;
 	let each_value = /*items*/ ctx[0];
@@ -586,7 +586,7 @@ function create_if_block(ctx) {
 			this.h();
 		},
 		h() {
-			attr(ul, "class", "items svelte-xkf5gw");
+			attr(ul, "class", "items svelte-1q386dt");
 		},
 		m(target, anchor) {
 			insert_hydration(target, ul, anchor);
@@ -628,7 +628,7 @@ function create_if_block(ctx) {
 	};
 }
 
-// (240:12) {#each item.links as {link}}
+// (241:12) {#each item.links as {link}}
 function create_each_block_1(ctx) {
 	let a;
 	let t_value = /*link*/ ctx[10].label + "";
@@ -669,7 +669,7 @@ function create_each_block_1(ctx) {
 	};
 }
 
-// (245:8) {#if item.thumbnail.url}
+// (246:8) {#if item.thumbnail.url}
 function create_if_block_1(ctx) {
 	let img;
 	let img_src_value;
@@ -687,7 +687,7 @@ function create_if_block_1(ctx) {
 		h() {
 			if (!src_url_equal(img.src, img_src_value = /*item*/ ctx[7].thumbnail.url)) attr(img, "src", img_src_value);
 			attr(img, "alt", img_alt_value = /*item*/ ctx[7].thumbnail.alt);
-			attr(img, "class", "svelte-xkf5gw");
+			attr(img, "class", "svelte-1q386dt");
 		},
 		m(target, anchor) {
 			insert_hydration(target, img, anchor);
@@ -707,7 +707,7 @@ function create_if_block_1(ctx) {
 	};
 }
 
-// (234:6) {#each items as item}
+// (235:6) {#each items as item}
 function create_each_block(ctx) {
 	let li;
 	let div2;
@@ -780,10 +780,10 @@ function create_each_block(ctx) {
 			this.h();
 		},
 		h() {
-			attr(h3, "class", "title svelte-xkf5gw");
-			attr(div0, "class", "description svelte-xkf5gw");
-			attr(div1, "class", "links svelte-xkf5gw");
-			attr(li, "class", "svelte-xkf5gw");
+			attr(h3, "class", "title svelte-1q386dt");
+			attr(div0, "class", "description svelte-1q386dt");
+			attr(div1, "class", "links svelte-1q386dt");
+			attr(li, "class", "svelte-1q386dt");
 		},
 		m(target, anchor) {
 			insert_hydration(target, li, anchor);
@@ -926,10 +926,10 @@ function create_fragment(ctx) {
 		},
 		h() {
 			attr(h3, "class", "heading");
-			attr(button0, "class", button0_class_value = "web " + (/*activeTab*/ ctx[1] === 'websites' ? 'active' : '') + " svelte-xkf5gw");
-			attr(button1, "class", button1_class_value = "webapp " + (/*activeTab*/ ctx[1] === 'webApps' ? 'active' : '') + " svelte-xkf5gw");
-			attr(button2, "class", button2_class_value = "word " + (/*activeTab*/ ctx[1] === 'wordpress' ? 'active' : '') + " svelte-xkf5gw");
-			attr(div0, "class", "tabs cont svelte-xkf5gw");
+			attr(button0, "class", button0_class_value = "web " + (/*activeTab*/ ctx[1] === 'websites' ? 'active' : '') + " svelte-1q386dt");
+			attr(button1, "class", button1_class_value = "webapp " + (/*activeTab*/ ctx[1] === 'webApps' ? 'active' : '') + " svelte-1q386dt");
+			attr(button2, "class", button2_class_value = "word " + (/*activeTab*/ ctx[1] === 'wordpress' ? 'active' : '') + " svelte-1q386dt");
+			attr(div0, "class", "tabs cont svelte-1q386dt");
 			attr(div1, "class", "section-container");
 		},
 		m(target, anchor) {
@@ -960,15 +960,15 @@ function create_fragment(ctx) {
 			}
 		},
 		p(ctx, [dirty]) {
-			if (dirty & /*activeTab*/ 2 && button0_class_value !== (button0_class_value = "web " + (/*activeTab*/ ctx[1] === 'websites' ? 'active' : '') + " svelte-xkf5gw")) {
+			if (dirty & /*activeTab*/ 2 && button0_class_value !== (button0_class_value = "web " + (/*activeTab*/ ctx[1] === 'websites' ? 'active' : '') + " svelte-1q386dt")) {
 				attr(button0, "class", button0_class_value);
 			}
 
-			if (dirty & /*activeTab*/ 2 && button1_class_value !== (button1_class_value = "webapp " + (/*activeTab*/ ctx[1] === 'webApps' ? 'active' : '') + " svelte-xkf5gw")) {
+			if (dirty & /*activeTab*/ 2 && button1_class_value !== (button1_class_value = "webapp " + (/*activeTab*/ ctx[1] === 'webApps' ? 'active' : '') + " svelte-1q386dt")) {
 				attr(button1, "class", button1_class_value);
 			}
 
-			if (dirty & /*activeTab*/ 2 && button2_class_value !== (button2_class_value = "word " + (/*activeTab*/ ctx[1] === 'wordpress' ? 'active' : '') + " svelte-xkf5gw")) {
+			if (dirty & /*activeTab*/ 2 && button2_class_value !== (button2_class_value = "word " + (/*activeTab*/ ctx[1] === 'wordpress' ? 'active' : '') + " svelte-1q386dt")) {
 				attr(button2, "class", button2_class_value);
 			}
 
