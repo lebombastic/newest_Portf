@@ -180,6 +180,9 @@ function text(data) {
 function space() {
     return text(' ');
 }
+function empty() {
+    return text('');
+}
 function listen(node, event, handler, options) {
     node.addEventListener(event, handler, options);
     return () => node.removeEventListener(event, handler, options);
@@ -554,10 +557,327 @@ function get_each_context_1(ctx, list, i) {
 	return child_ctx;
 }
 
-// (233:2) {#if activeTab === 'websites'}
+function get_each_context_2(ctx, list, i) {
+	const child_ctx = ctx.slice();
+	child_ctx[7] = list[i];
+	return child_ctx;
+}
+
+function get_each_context_3(ctx, list, i) {
+	const child_ctx = ctx.slice();
+	child_ctx[10] = list[i].link;
+	return child_ctx;
+}
+
+// (230:2) {#if activeTab === 'websites'}
+function create_if_block_2(ctx) {
+	let ul;
+	let t;
+	let each_value_2 = /*items*/ ctx[0];
+	let each_blocks = [];
+
+	for (let i = 0; i < each_value_2.length; i += 1) {
+		each_blocks[i] = create_each_block_2(get_each_context_2(ctx, each_value_2, i));
+	}
+
+	return {
+		c() {
+			ul = element("ul");
+
+			for (let i = 0; i < each_blocks.length; i += 1) {
+				each_blocks[i].c();
+			}
+
+			t = space();
+			this.h();
+		},
+		l(nodes) {
+			ul = claim_element(nodes, "UL", { class: true });
+			var ul_nodes = children(ul);
+
+			for (let i = 0; i < each_blocks.length; i += 1) {
+				each_blocks[i].l(ul_nodes);
+			}
+
+			ul_nodes.forEach(detach);
+			t = claim_space(nodes);
+			this.h();
+		},
+		h() {
+			attr(ul, "class", "items svelte-1q386dt");
+		},
+		m(target, anchor) {
+			insert_hydration(target, ul, anchor);
+
+			for (let i = 0; i < each_blocks.length; i += 1) {
+				if (each_blocks[i]) {
+					each_blocks[i].m(ul, null);
+				}
+			}
+
+			insert_hydration(target, t, anchor);
+		},
+		p(ctx, dirty) {
+			if (dirty & /*items*/ 1) {
+				each_value_2 = /*items*/ ctx[0];
+				let i;
+
+				for (i = 0; i < each_value_2.length; i += 1) {
+					const child_ctx = get_each_context_2(ctx, each_value_2, i);
+
+					if (each_blocks[i]) {
+						each_blocks[i].p(child_ctx, dirty);
+					} else {
+						each_blocks[i] = create_each_block_2(child_ctx);
+						each_blocks[i].c();
+						each_blocks[i].m(ul, null);
+					}
+				}
+
+				for (; i < each_blocks.length; i += 1) {
+					each_blocks[i].d(1);
+				}
+
+				each_blocks.length = each_value_2.length;
+			}
+		},
+		d(detaching) {
+			if (detaching) detach(ul);
+			destroy_each(each_blocks, detaching);
+			if (detaching) detach(t);
+		}
+	};
+}
+
+// (238:12) {#each item.links as {link}}
+function create_each_block_3(ctx) {
+	let a;
+	let t_value = /*link*/ ctx[10].label + "";
+	let t;
+	let a_href_value;
+
+	return {
+		c() {
+			a = element("a");
+			t = text(t_value);
+			this.h();
+		},
+		l(nodes) {
+			a = claim_element(nodes, "A", { class: true, href: true });
+			var a_nodes = children(a);
+			t = claim_text(a_nodes, t_value);
+			a_nodes.forEach(detach);
+			this.h();
+		},
+		h() {
+			attr(a, "class", "link");
+			attr(a, "href", a_href_value = /*link*/ ctx[10].url);
+		},
+		m(target, anchor) {
+			insert_hydration(target, a, anchor);
+			append_hydration(a, t);
+		},
+		p(ctx, dirty) {
+			if (dirty & /*items*/ 1 && t_value !== (t_value = /*link*/ ctx[10].label + "")) set_data(t, t_value);
+
+			if (dirty & /*items*/ 1 && a_href_value !== (a_href_value = /*link*/ ctx[10].url)) {
+				attr(a, "href", a_href_value);
+			}
+		},
+		d(detaching) {
+			if (detaching) detach(a);
+		}
+	};
+}
+
+// (243:8) {#if item.thumbnail.url}
+function create_if_block_3(ctx) {
+	let img;
+	let img_src_value;
+	let img_alt_value;
+
+	return {
+		c() {
+			img = element("img");
+			this.h();
+		},
+		l(nodes) {
+			img = claim_element(nodes, "IMG", { src: true, alt: true, class: true });
+			this.h();
+		},
+		h() {
+			if (!src_url_equal(img.src, img_src_value = /*item*/ ctx[7].thumbnail.url)) attr(img, "src", img_src_value);
+			attr(img, "alt", img_alt_value = /*item*/ ctx[7].thumbnail.alt);
+			attr(img, "class", "svelte-1q386dt");
+		},
+		m(target, anchor) {
+			insert_hydration(target, img, anchor);
+		},
+		p(ctx, dirty) {
+			if (dirty & /*items*/ 1 && !src_url_equal(img.src, img_src_value = /*item*/ ctx[7].thumbnail.url)) {
+				attr(img, "src", img_src_value);
+			}
+
+			if (dirty & /*items*/ 1 && img_alt_value !== (img_alt_value = /*item*/ ctx[7].thumbnail.alt)) {
+				attr(img, "alt", img_alt_value);
+			}
+		},
+		d(detaching) {
+			if (detaching) detach(img);
+		}
+	};
+}
+
+// (232:6) {#each items as item}
+function create_each_block_2(ctx) {
+	let li;
+	let div2;
+	let h3;
+	let t0_value = /*item*/ ctx[7].title + "";
+	let t0;
+	let t1;
+	let div0;
+	let raw_value = /*item*/ ctx[7].description.html + "";
+	let t2;
+	let div1;
+	let t3;
+	let t4;
+	let each_value_3 = /*item*/ ctx[7].links;
+	let each_blocks = [];
+
+	for (let i = 0; i < each_value_3.length; i += 1) {
+		each_blocks[i] = create_each_block_3(get_each_context_3(ctx, each_value_3, i));
+	}
+
+	let if_block = /*item*/ ctx[7].thumbnail.url && create_if_block_3(ctx);
+
+	return {
+		c() {
+			li = element("li");
+			div2 = element("div");
+			h3 = element("h3");
+			t0 = text(t0_value);
+			t1 = space();
+			div0 = element("div");
+			t2 = space();
+			div1 = element("div");
+
+			for (let i = 0; i < each_blocks.length; i += 1) {
+				each_blocks[i].c();
+			}
+
+			t3 = space();
+			if (if_block) if_block.c();
+			t4 = space();
+			this.h();
+		},
+		l(nodes) {
+			li = claim_element(nodes, "LI", { class: true });
+			var li_nodes = children(li);
+			div2 = claim_element(li_nodes, "DIV", {});
+			var div2_nodes = children(div2);
+			h3 = claim_element(div2_nodes, "H3", { class: true });
+			var h3_nodes = children(h3);
+			t0 = claim_text(h3_nodes, t0_value);
+			h3_nodes.forEach(detach);
+			t1 = claim_space(div2_nodes);
+			div0 = claim_element(div2_nodes, "DIV", { class: true });
+			var div0_nodes = children(div0);
+			div0_nodes.forEach(detach);
+			t2 = claim_space(div2_nodes);
+			div1 = claim_element(div2_nodes, "DIV", { class: true });
+			var div1_nodes = children(div1);
+
+			for (let i = 0; i < each_blocks.length; i += 1) {
+				each_blocks[i].l(div1_nodes);
+			}
+
+			div1_nodes.forEach(detach);
+			div2_nodes.forEach(detach);
+			t3 = claim_space(li_nodes);
+			if (if_block) if_block.l(li_nodes);
+			t4 = claim_space(li_nodes);
+			li_nodes.forEach(detach);
+			this.h();
+		},
+		h() {
+			attr(h3, "class", "title svelte-1q386dt");
+			attr(div0, "class", "description svelte-1q386dt");
+			attr(div1, "class", "links svelte-1q386dt");
+			attr(li, "class", "svelte-1q386dt");
+		},
+		m(target, anchor) {
+			insert_hydration(target, li, anchor);
+			append_hydration(li, div2);
+			append_hydration(div2, h3);
+			append_hydration(h3, t0);
+			append_hydration(div2, t1);
+			append_hydration(div2, div0);
+			div0.innerHTML = raw_value;
+			append_hydration(div2, t2);
+			append_hydration(div2, div1);
+
+			for (let i = 0; i < each_blocks.length; i += 1) {
+				if (each_blocks[i]) {
+					each_blocks[i].m(div1, null);
+				}
+			}
+
+			append_hydration(li, t3);
+			if (if_block) if_block.m(li, null);
+			append_hydration(li, t4);
+		},
+		p(ctx, dirty) {
+			if (dirty & /*items*/ 1 && t0_value !== (t0_value = /*item*/ ctx[7].title + "")) set_data(t0, t0_value);
+			if (dirty & /*items*/ 1 && raw_value !== (raw_value = /*item*/ ctx[7].description.html + "")) div0.innerHTML = raw_value;
+			if (dirty & /*items*/ 1) {
+				each_value_3 = /*item*/ ctx[7].links;
+				let i;
+
+				for (i = 0; i < each_value_3.length; i += 1) {
+					const child_ctx = get_each_context_3(ctx, each_value_3, i);
+
+					if (each_blocks[i]) {
+						each_blocks[i].p(child_ctx, dirty);
+					} else {
+						each_blocks[i] = create_each_block_3(child_ctx);
+						each_blocks[i].c();
+						each_blocks[i].m(div1, null);
+					}
+				}
+
+				for (; i < each_blocks.length; i += 1) {
+					each_blocks[i].d(1);
+				}
+
+				each_blocks.length = each_value_3.length;
+			}
+
+			if (/*item*/ ctx[7].thumbnail.url) {
+				if (if_block) {
+					if_block.p(ctx, dirty);
+				} else {
+					if_block = create_if_block_3(ctx);
+					if_block.c();
+					if_block.m(li, t4);
+				}
+			} else if (if_block) {
+				if_block.d(1);
+				if_block = null;
+			}
+		},
+		d(detaching) {
+			if (detaching) detach(li);
+			destroy_each(each_blocks, detaching);
+			if (if_block) if_block.d();
+		}
+	};
+}
+
+// (249:7) {#if activeTab === 'wordpress'}
 function create_if_block(ctx) {
 	let ul;
-	let each_value = /*items*/ ctx[0];
+	let each_value = /*wp*/ ctx[1];
 	let each_blocks = [];
 
 	for (let i = 0; i < each_value.length; i += 1) {
@@ -598,8 +918,8 @@ function create_if_block(ctx) {
 			}
 		},
 		p(ctx, dirty) {
-			if (dirty & /*items*/ 1) {
-				each_value = /*items*/ ctx[0];
+			if (dirty & /*wp*/ 2) {
+				each_value = /*wp*/ ctx[1];
 				let i;
 
 				for (i = 0; i < each_value.length; i += 1) {
@@ -628,7 +948,7 @@ function create_if_block(ctx) {
 	};
 }
 
-// (241:12) {#each item.links as {link}}
+// (257:12) {#each item.links as {link}}
 function create_each_block_1(ctx) {
 	let a;
 	let t_value = /*link*/ ctx[10].label + "";
@@ -657,9 +977,9 @@ function create_each_block_1(ctx) {
 			append_hydration(a, t);
 		},
 		p(ctx, dirty) {
-			if (dirty & /*items*/ 1 && t_value !== (t_value = /*link*/ ctx[10].label + "")) set_data(t, t_value);
+			if (dirty & /*wp*/ 2 && t_value !== (t_value = /*link*/ ctx[10].label + "")) set_data(t, t_value);
 
-			if (dirty & /*items*/ 1 && a_href_value !== (a_href_value = /*link*/ ctx[10].url)) {
+			if (dirty & /*wp*/ 2 && a_href_value !== (a_href_value = /*link*/ ctx[10].url)) {
 				attr(a, "href", a_href_value);
 			}
 		},
@@ -669,7 +989,7 @@ function create_each_block_1(ctx) {
 	};
 }
 
-// (246:8) {#if item.thumbnail.url}
+// (262:8) {#if item.thumbnail.url}
 function create_if_block_1(ctx) {
 	let img;
 	let img_src_value;
@@ -693,11 +1013,11 @@ function create_if_block_1(ctx) {
 			insert_hydration(target, img, anchor);
 		},
 		p(ctx, dirty) {
-			if (dirty & /*items*/ 1 && !src_url_equal(img.src, img_src_value = /*item*/ ctx[7].thumbnail.url)) {
+			if (dirty & /*wp*/ 2 && !src_url_equal(img.src, img_src_value = /*item*/ ctx[7].thumbnail.url)) {
 				attr(img, "src", img_src_value);
 			}
 
-			if (dirty & /*items*/ 1 && img_alt_value !== (img_alt_value = /*item*/ ctx[7].thumbnail.alt)) {
+			if (dirty & /*wp*/ 2 && img_alt_value !== (img_alt_value = /*item*/ ctx[7].thumbnail.alt)) {
 				attr(img, "alt", img_alt_value);
 			}
 		},
@@ -707,7 +1027,7 @@ function create_if_block_1(ctx) {
 	};
 }
 
-// (235:6) {#each items as item}
+// (251:6) {#each wp as item}
 function create_each_block(ctx) {
 	let li;
 	let div2;
@@ -807,9 +1127,9 @@ function create_each_block(ctx) {
 			append_hydration(li, t4);
 		},
 		p(ctx, dirty) {
-			if (dirty & /*items*/ 1 && t0_value !== (t0_value = /*item*/ ctx[7].title + "")) set_data(t0, t0_value);
-			if (dirty & /*items*/ 1 && raw_value !== (raw_value = /*item*/ ctx[7].description.html + "")) div0.innerHTML = raw_value;
-			if (dirty & /*items*/ 1) {
+			if (dirty & /*wp*/ 2 && t0_value !== (t0_value = /*item*/ ctx[7].title + "")) set_data(t0, t0_value);
+			if (dirty & /*wp*/ 2 && raw_value !== (raw_value = /*item*/ ctx[7].description.html + "")) div0.innerHTML = raw_value;
+			if (dirty & /*wp*/ 2) {
 				each_value_1 = /*item*/ ctx[7].links;
 				let i;
 
@@ -871,9 +1191,11 @@ function create_fragment(ctx) {
 	let t6;
 	let button2_class_value;
 	let t7;
+	let if_block0_anchor;
 	let mounted;
 	let dispose;
-	let if_block = /*activeTab*/ ctx[1] === 'websites' && create_if_block(ctx);
+	let if_block0 = /*activeTab*/ ctx[2] === 'websites' && create_if_block_2(ctx);
+	let if_block1 = /*activeTab*/ ctx[2] === 'wordpress' && create_if_block(ctx);
 
 	return {
 		c() {
@@ -891,7 +1213,9 @@ function create_fragment(ctx) {
 			button2 = element("button");
 			t6 = text("WordPress");
 			t7 = space();
-			if (if_block) if_block.c();
+			if (if_block0) if_block0.c();
+			if_block0_anchor = empty();
+			if (if_block1) if_block1.c();
 			this.h();
 		},
 		l(nodes) {
@@ -920,15 +1244,17 @@ function create_fragment(ctx) {
 			button2_nodes.forEach(detach);
 			div0_nodes.forEach(detach);
 			t7 = claim_space(div1_nodes);
-			if (if_block) if_block.l(div1_nodes);
+			if (if_block0) if_block0.l(div1_nodes);
+			if_block0_anchor = empty();
+			if (if_block1) if_block1.l(div1_nodes);
 			div1_nodes.forEach(detach);
 			this.h();
 		},
 		h() {
 			attr(h3, "class", "heading");
-			attr(button0, "class", button0_class_value = "web " + (/*activeTab*/ ctx[1] === 'websites' ? 'active' : '') + " svelte-1q386dt");
-			attr(button1, "class", button1_class_value = "webapp " + (/*activeTab*/ ctx[1] === 'webApps' ? 'active' : '') + " svelte-1q386dt");
-			attr(button2, "class", button2_class_value = "word " + (/*activeTab*/ ctx[1] === 'wordpress' ? 'active' : '') + " svelte-1q386dt");
+			attr(button0, "class", button0_class_value = "web " + (/*activeTab*/ ctx[2] === 'websites' ? 'active' : '') + " svelte-1q386dt");
+			attr(button1, "class", button1_class_value = "webapp " + (/*activeTab*/ ctx[2] === 'webApps' ? 'active' : '') + " svelte-1q386dt");
+			attr(button2, "class", button2_class_value = "word " + (/*activeTab*/ ctx[2] === 'wordpress' ? 'active' : '') + " svelte-1q386dt");
 			attr(div0, "class", "tabs cont svelte-1q386dt");
 			attr(div1, "class", "section-container");
 		},
@@ -947,7 +1273,9 @@ function create_fragment(ctx) {
 			append_hydration(div0, button2);
 			append_hydration(button2, t6);
 			append_hydration(div1, t7);
-			if (if_block) if_block.m(div1, null);
+			if (if_block0) if_block0.m(div1, null);
+			append_hydration(div1, if_block0_anchor);
+			if (if_block1) if_block1.m(div1, null);
 
 			if (!mounted) {
 				dispose = [
@@ -960,36 +1288,50 @@ function create_fragment(ctx) {
 			}
 		},
 		p(ctx, [dirty]) {
-			if (dirty & /*activeTab*/ 2 && button0_class_value !== (button0_class_value = "web " + (/*activeTab*/ ctx[1] === 'websites' ? 'active' : '') + " svelte-1q386dt")) {
+			if (dirty & /*activeTab*/ 4 && button0_class_value !== (button0_class_value = "web " + (/*activeTab*/ ctx[2] === 'websites' ? 'active' : '') + " svelte-1q386dt")) {
 				attr(button0, "class", button0_class_value);
 			}
 
-			if (dirty & /*activeTab*/ 2 && button1_class_value !== (button1_class_value = "webapp " + (/*activeTab*/ ctx[1] === 'webApps' ? 'active' : '') + " svelte-1q386dt")) {
+			if (dirty & /*activeTab*/ 4 && button1_class_value !== (button1_class_value = "webapp " + (/*activeTab*/ ctx[2] === 'webApps' ? 'active' : '') + " svelte-1q386dt")) {
 				attr(button1, "class", button1_class_value);
 			}
 
-			if (dirty & /*activeTab*/ 2 && button2_class_value !== (button2_class_value = "word " + (/*activeTab*/ ctx[1] === 'wordpress' ? 'active' : '') + " svelte-1q386dt")) {
+			if (dirty & /*activeTab*/ 4 && button2_class_value !== (button2_class_value = "word " + (/*activeTab*/ ctx[2] === 'wordpress' ? 'active' : '') + " svelte-1q386dt")) {
 				attr(button2, "class", button2_class_value);
 			}
 
-			if (/*activeTab*/ ctx[1] === 'websites') {
-				if (if_block) {
-					if_block.p(ctx, dirty);
+			if (/*activeTab*/ ctx[2] === 'websites') {
+				if (if_block0) {
+					if_block0.p(ctx, dirty);
 				} else {
-					if_block = create_if_block(ctx);
-					if_block.c();
-					if_block.m(div1, null);
+					if_block0 = create_if_block_2(ctx);
+					if_block0.c();
+					if_block0.m(div1, if_block0_anchor);
 				}
-			} else if (if_block) {
-				if_block.d(1);
-				if_block = null;
+			} else if (if_block0) {
+				if_block0.d(1);
+				if_block0 = null;
+			}
+
+			if (/*activeTab*/ ctx[2] === 'wordpress') {
+				if (if_block1) {
+					if_block1.p(ctx, dirty);
+				} else {
+					if_block1 = create_if_block(ctx);
+					if_block1.c();
+					if_block1.m(div1, null);
+				}
+			} else if (if_block1) {
+				if_block1.d(1);
+				if_block1 = null;
 			}
 		},
 		i: noop,
 		o: noop,
 		d(detaching) {
 			if (detaching) detach(div1);
-			if (if_block) if_block.d();
+			if (if_block0) if_block0.d();
+			if (if_block1) if_block1.d();
 			mounted = false;
 			run_all(dispose);
 		}
@@ -999,33 +1341,25 @@ function create_fragment(ctx) {
 function instance($$self, $$props, $$invalidate) {
 	let { props } = $$props;
 	let { items } = $$props;
-	let { heading } = $$props;
+	let { wp } = $$props;
 	let activeTab = 'tabs';
-	const click_handler = () => $$invalidate(1, activeTab = 'websites');
-	const click_handler_1 = () => $$invalidate(1, activeTab = 'webApps');
-	const click_handler_2 = () => $$invalidate(1, activeTab = 'wordpress');
+	const click_handler = () => $$invalidate(2, activeTab = 'websites');
+	const click_handler_1 = () => $$invalidate(2, activeTab = 'webApps');
+	const click_handler_2 = () => $$invalidate(2, activeTab = 'wordpress');
 
 	$$self.$$set = $$props => {
-		if ('props' in $$props) $$invalidate(2, props = $$props.props);
+		if ('props' in $$props) $$invalidate(3, props = $$props.props);
 		if ('items' in $$props) $$invalidate(0, items = $$props.items);
-		if ('heading' in $$props) $$invalidate(3, heading = $$props.heading);
+		if ('wp' in $$props) $$invalidate(1, wp = $$props.wp);
 	};
 
-	return [
-		items,
-		activeTab,
-		props,
-		heading,
-		click_handler,
-		click_handler_1,
-		click_handler_2
-	];
+	return [items, wp, activeTab, props, click_handler, click_handler_1, click_handler_2];
 }
 
 class Component extends SvelteComponent {
 	constructor(options) {
 		super();
-		init(this, options, instance, create_fragment, safe_not_equal, { props: 2, items: 0, heading: 3 });
+		init(this, options, instance, create_fragment, safe_not_equal, { props: 3, items: 0, wp: 1 });
 	}
 }
 
