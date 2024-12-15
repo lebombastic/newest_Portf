@@ -3038,7 +3038,7 @@ function create_fragment(ctx) {
 			span2 = element("span");
 			a1 = element("a");
 			t9 = text("Primo");
-			t10 = text(" Developer ()");
+			t10 = text(" Developer");
 			t11 = space();
 			ul = element("ul");
 
@@ -3087,7 +3087,7 @@ function create_fragment(ctx) {
 			var a1_nodes = children(a1);
 			t9 = claim_text(a1_nodes, "Primo");
 			a1_nodes.forEach(detach);
-			t10 = claim_text(span2_nodes, " Developer ()");
+			t10 = claim_text(span2_nodes, " Developer");
 			span2_nodes.forEach(detach);
 			t11 = claim_space(div1_nodes);
 			ul = claim_element(div1_nodes, "UL", { class: true });
