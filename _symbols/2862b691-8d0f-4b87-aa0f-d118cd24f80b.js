@@ -604,7 +604,7 @@ function create_if_block_2(ctx) {
 			this.h();
 		},
 		h() {
-			attr(ul, "class", "items svelte-sw0ep4");
+			attr(ul, "class", "items svelte-170wnvb");
 		},
 		m(target, anchor) {
 			insert_hydration(target, ul, anchor);
@@ -708,7 +708,7 @@ function create_if_block_3(ctx) {
 		h() {
 			if (!src_url_equal(img.src, img_src_value = /*item*/ ctx[7].thumbnail.url)) attr(img, "src", img_src_value);
 			attr(img, "alt", img_alt_value = /*item*/ ctx[7].thumbnail.alt);
-			attr(img, "class", "svelte-sw0ep4");
+			attr(img, "class", "svelte-170wnvb");
 		},
 		m(target, anchor) {
 			insert_hydration(target, img, anchor);
@@ -801,10 +801,10 @@ function create_each_block_2(ctx) {
 			this.h();
 		},
 		h() {
-			attr(h3, "class", "title svelte-sw0ep4");
-			attr(div0, "class", "description svelte-sw0ep4");
-			attr(div1, "class", "links svelte-sw0ep4");
-			attr(li, "class", "svelte-sw0ep4");
+			attr(h3, "class", "title svelte-170wnvb");
+			attr(div0, "class", "description svelte-170wnvb");
+			attr(div1, "class", "links svelte-170wnvb");
+			attr(li, "class", "svelte-170wnvb");
 		},
 		m(target, anchor) {
 			insert_hydration(target, li, anchor);
@@ -906,7 +906,7 @@ function create_if_block(ctx) {
 			this.h();
 		},
 		h() {
-			attr(ul, "class", "items svelte-sw0ep4");
+			attr(ul, "class", "items svelte-170wnvb");
 		},
 		m(target, anchor) {
 			insert_hydration(target, ul, anchor);
@@ -1007,7 +1007,7 @@ function create_if_block_1(ctx) {
 		h() {
 			if (!src_url_equal(img.src, img_src_value = /*item*/ ctx[7].thumbnail.url)) attr(img, "src", img_src_value);
 			attr(img, "alt", img_alt_value = /*item*/ ctx[7].thumbnail.alt);
-			attr(img, "class", "svelte-sw0ep4");
+			attr(img, "class", "svelte-170wnvb");
 		},
 		m(target, anchor) {
 			insert_hydration(target, img, anchor);
@@ -1100,10 +1100,10 @@ function create_each_block(ctx) {
 			this.h();
 		},
 		h() {
-			attr(h3, "class", "title svelte-sw0ep4");
-			attr(div0, "class", "description svelte-sw0ep4");
-			attr(div1, "class", "links svelte-sw0ep4");
-			attr(li, "class", "svelte-sw0ep4");
+			attr(h3, "class", "title svelte-170wnvb");
+			attr(div0, "class", "description svelte-170wnvb");
+			attr(div1, "class", "links svelte-170wnvb");
+			attr(li, "class", "svelte-170wnvb");
 		},
 		m(target, anchor) {
 			insert_hydration(target, li, anchor);
@@ -1252,10 +1252,10 @@ function create_fragment(ctx) {
 		},
 		h() {
 			attr(h3, "class", "heading");
-			attr(button0, "class", button0_class_value = "web " + (/*activeTab*/ ctx[2] === 'websites' ? 'active' : '') + " svelte-sw0ep4");
-			attr(button1, "class", button1_class_value = "webapp " + (/*activeTab*/ ctx[2] === 'webApps' ? 'active' : '') + " svelte-sw0ep4");
-			attr(button2, "class", button2_class_value = "word " + (/*activeTab*/ ctx[2] === 'wordpress' ? 'active' : '') + " svelte-sw0ep4");
-			attr(div0, "class", "tabs cont svelte-sw0ep4");
+			attr(button0, "class", button0_class_value = "web " + (/*activeTab*/ ctx[2] === 'websites' ? 'active' : '') + " svelte-170wnvb");
+			attr(button1, "class", button1_class_value = "webapp " + (/*activeTab*/ ctx[2] === 'webApps' ? 'active' : '') + " svelte-170wnvb");
+			attr(button2, "class", button2_class_value = "word " + (/*activeTab*/ ctx[2] === 'wordpress' ? 'active' : '') + " svelte-170wnvb");
+			attr(div0, "class", "tabs cont svelte-170wnvb");
 			attr(div1, "class", "section-container");
 		},
 		m(target, anchor) {
@@ -1288,15 +1288,15 @@ function create_fragment(ctx) {
 			}
 		},
 		p(ctx, [dirty]) {
-			if (dirty & /*activeTab*/ 4 && button0_class_value !== (button0_class_value = "web " + (/*activeTab*/ ctx[2] === 'websites' ? 'active' : '') + " svelte-sw0ep4")) {
+			if (dirty & /*activeTab*/ 4 && button0_class_value !== (button0_class_value = "web " + (/*activeTab*/ ctx[2] === 'websites' ? 'active' : '') + " svelte-170wnvb")) {
 				attr(button0, "class", button0_class_value);
 			}
 
-			if (dirty & /*activeTab*/ 4 && button1_class_value !== (button1_class_value = "webapp " + (/*activeTab*/ ctx[2] === 'webApps' ? 'active' : '') + " svelte-sw0ep4")) {
+			if (dirty & /*activeTab*/ 4 && button1_class_value !== (button1_class_value = "webapp " + (/*activeTab*/ ctx[2] === 'webApps' ? 'active' : '') + " svelte-170wnvb")) {
 				attr(button1, "class", button1_class_value);
 			}
 
-			if (dirty & /*activeTab*/ 4 && button2_class_value !== (button2_class_value = "word " + (/*activeTab*/ ctx[2] === 'wordpress' ? 'active' : '') + " svelte-sw0ep4")) {
+			if (dirty & /*activeTab*/ 4 && button2_class_value !== (button2_class_value = "word " + (/*activeTab*/ ctx[2] === 'wordpress' ? 'active' : '') + " svelte-170wnvb")) {
 				attr(button2, "class", button2_class_value);
 			}
 
