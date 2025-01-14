@@ -663,7 +663,7 @@ function create_each_block_3(ctx) {
 			this.h();
 		},
 		l(nodes) {
-			a = claim_element(nodes, "A", { class: true, href: true });
+			a = claim_element(nodes, "A", { class: true, href: true, target: true });
 			var a_nodes = children(a);
 			t = claim_text(a_nodes, t_value);
 			a_nodes.forEach(detach);
@@ -672,6 +672,7 @@ function create_each_block_3(ctx) {
 		h() {
 			attr(a, "class", "link");
 			attr(a, "href", a_href_value = /*link*/ ctx[10].url);
+			attr(a, "target", "_blank");
 		},
 		m(target, anchor) {
 			insert_hydration(target, a, anchor);
@@ -962,7 +963,7 @@ function create_each_block_1(ctx) {
 			this.h();
 		},
 		l(nodes) {
-			a = claim_element(nodes, "A", { class: true, href: true });
+			a = claim_element(nodes, "A", { class: true, href: true, target: true });
 			var a_nodes = children(a);
 			t = claim_text(a_nodes, t_value);
 			a_nodes.forEach(detach);
@@ -971,6 +972,7 @@ function create_each_block_1(ctx) {
 		h() {
 			attr(a, "class", "link");
 			attr(a, "href", a_href_value = /*link*/ ctx[10].url);
+			attr(a, "target", "_blank");
 		},
 		m(target, anchor) {
 			insert_hydration(target, a, anchor);
