@@ -1,4 +1,4 @@
-// Site Footer - Updated December 15, 2024
+// Site Footer - Updated January 14, 2025
 function noop() { }
 function assign(tar, src) {
     // @ts-ignore
@@ -1855,201 +1855,6 @@ function sendAPIQuery(target, query, callback) {
   return redundancy.query(query, send, callback)().abort;
 }
 
-const browserCacheVersion = "iconify2";
-const browserCachePrefix = "iconify";
-const browserCacheCountKey = browserCachePrefix + "-count";
-const browserCacheVersionKey = browserCachePrefix + "-version";
-const browserStorageHour = 36e5;
-const browserStorageCacheExpiration = 168;
-const browserStorageLimit = 50;
-
-function getStoredItem(func, key) {
-  try {
-    return func.getItem(key);
-  } catch (err) {
-  }
-}
-function setStoredItem(func, key, value) {
-  try {
-    func.setItem(key, value);
-    return true;
-  } catch (err) {
-  }
-}
-function removeStoredItem(func, key) {
-  try {
-    func.removeItem(key);
-  } catch (err) {
-  }
-}
-
-function setBrowserStorageItemsCount(storage, value) {
-  return setStoredItem(storage, browserCacheCountKey, value.toString());
-}
-function getBrowserStorageItemsCount(storage) {
-  return parseInt(getStoredItem(storage, browserCacheCountKey)) || 0;
-}
-
-const browserStorageConfig = {
-  local: true,
-  session: true
-};
-const browserStorageEmptyItems = {
-  local: /* @__PURE__ */ new Set(),
-  session: /* @__PURE__ */ new Set()
-};
-let browserStorageStatus = false;
-function setBrowserStorageStatus(status) {
-  browserStorageStatus = status;
-}
-
-let _window = typeof window === "undefined" ? {} : window;
-function getBrowserStorage(key) {
-  const attr = key + "Storage";
-  try {
-    if (_window && _window[attr] && typeof _window[attr].length === "number") {
-      return _window[attr];
-    }
-  } catch (err) {
-  }
-  browserStorageConfig[key] = false;
-}
-
-function iterateBrowserStorage(key, callback) {
-  const func = getBrowserStorage(key);
-  if (!func) {
-    return;
-  }
-  const version = getStoredItem(func, browserCacheVersionKey);
-  if (version !== browserCacheVersion) {
-    if (version) {
-      const total2 = getBrowserStorageItemsCount(func);
-      for (let i = 0; i < total2; i++) {
-        removeStoredItem(func, browserCachePrefix + i.toString());
-      }
-    }
-    setStoredItem(func, browserCacheVersionKey, browserCacheVersion);
-    setBrowserStorageItemsCount(func, 0);
-    return;
-  }
-  const minTime = Math.floor(Date.now() / browserStorageHour) - browserStorageCacheExpiration;
-  const parseItem = (index) => {
-    const name = browserCachePrefix + index.toString();
-    const item = getStoredItem(func, name);
-    if (typeof item !== "string") {
-      return;
-    }
-    try {
-      const data = JSON.parse(item);
-      if (typeof data === "object" && typeof data.cached === "number" && data.cached > minTime && typeof data.provider === "string" && typeof data.data === "object" && typeof data.data.prefix === "string" && // Valid item: run callback
-      callback(data, index)) {
-        return true;
-      }
-    } catch (err) {
-    }
-    removeStoredItem(func, name);
-  };
-  let total = getBrowserStorageItemsCount(func);
-  for (let i = total - 1; i >= 0; i--) {
-    if (!parseItem(i)) {
-      if (i === total - 1) {
-        total--;
-        setBrowserStorageItemsCount(func, total);
-      } else {
-        browserStorageEmptyItems[key].add(i);
-      }
-    }
-  }
-}
-
-function initBrowserStorage() {
-  if (browserStorageStatus) {
-    return;
-  }
-  setBrowserStorageStatus(true);
-  for (const key in browserStorageConfig) {
-    iterateBrowserStorage(key, (item) => {
-      const iconSet = item.data;
-      const provider = item.provider;
-      const prefix = iconSet.prefix;
-      const storage = getStorage(
-        provider,
-        prefix
-      );
-      if (!addIconSet(storage, iconSet).length) {
-        return false;
-      }
-      const lastModified = iconSet.lastModified || -1;
-      storage.lastModifiedCached = storage.lastModifiedCached ? Math.min(storage.lastModifiedCached, lastModified) : lastModified;
-      return true;
-    });
-  }
-}
-
-function updateLastModified(storage, lastModified) {
-  const lastValue = storage.lastModifiedCached;
-  if (
-    // Matches or newer
-    lastValue && lastValue >= lastModified
-  ) {
-    return lastValue === lastModified;
-  }
-  storage.lastModifiedCached = lastModified;
-  if (lastValue) {
-    for (const key in browserStorageConfig) {
-      iterateBrowserStorage(key, (item) => {
-        const iconSet = item.data;
-        return item.provider !== storage.provider || iconSet.prefix !== storage.prefix || iconSet.lastModified === lastModified;
-      });
-    }
-  }
-  return true;
-}
-function storeInBrowserStorage(storage, data) {
-  if (!browserStorageStatus) {
-    initBrowserStorage();
-  }
-  function store(key) {
-    let func;
-    if (!browserStorageConfig[key] || !(func = getBrowserStorage(key))) {
-      return;
-    }
-    const set = browserStorageEmptyItems[key];
-    let index;
-    if (set.size) {
-      set.delete(index = Array.from(set).shift());
-    } else {
-      index = getBrowserStorageItemsCount(func);
-      if (index >= browserStorageLimit || !setBrowserStorageItemsCount(func, index + 1)) {
-        return;
-      }
-    }
-    const item = {
-      cached: Math.floor(Date.now() / browserStorageHour),
-      provider: storage.provider,
-      data
-    };
-    return setStoredItem(
-      func,
-      browserCachePrefix + index.toString(),
-      JSON.stringify(item)
-    );
-  }
-  if (data.lastModified && !updateLastModified(storage, data.lastModified)) {
-    return;
-  }
-  if (!Object.keys(data.icons).length) {
-    return;
-  }
-  if (data.not_found) {
-    data = Object.assign({}, data);
-    delete data.not_found;
-  }
-  if (!store("local")) {
-    store("session");
-  }
-}
-
 function emptyCallback() {
 }
 function loadedNewIcons(storage) {
@@ -2072,7 +1877,7 @@ function checkIconNamesForAPI(icons) {
     invalid
   };
 }
-function parseLoaderResponse(storage, icons, data, isAPIResponse) {
+function parseLoaderResponse(storage, icons, data) {
   function checkMissing() {
     const pending = storage.pendingIcons;
     icons.forEach((name) => {
@@ -2090,9 +1895,6 @@ function parseLoaderResponse(storage, icons, data, isAPIResponse) {
       if (!parsed.length) {
         checkMissing();
         return;
-      }
-      if (isAPIResponse) {
-        storeInBrowserStorage(storage, data);
       }
     } catch (err) {
       console.error(err);
@@ -2133,7 +1935,7 @@ function loadNewIcons(storage, icons) {
         parsePossiblyAsyncResponse(
           storage.loadIcons(icons2, prefix, provider),
           (data) => {
-            parseLoaderResponse(storage, icons2, data, false);
+            parseLoaderResponse(storage, icons2, data);
           }
         );
         return;
@@ -2148,27 +1950,27 @@ function loadNewIcons(storage, icons) {
                 [name]: data
               }
             } : null;
-            parseLoaderResponse(storage, [name], iconSet, false);
+            parseLoaderResponse(storage, [name], iconSet);
           });
         });
         return;
       }
       const { valid, invalid } = checkIconNamesForAPI(icons2);
       if (invalid.length) {
-        parseLoaderResponse(storage, invalid, null, false);
+        parseLoaderResponse(storage, invalid, null);
       }
       if (!valid.length) {
         return;
       }
       const api = prefix.match(matchIconName) ? getAPIModule(provider) : null;
       if (!api) {
-        parseLoaderResponse(storage, valid, null, false);
+        parseLoaderResponse(storage, valid, null);
         return;
       }
       const params = api.prepare(provider, prefix, valid);
       params.forEach((item) => {
         sendAPIQuery(provider, item, (data) => {
-          parseLoaderResponse(storage, item.icons, data, true);
+          parseLoaderResponse(storage, item.icons, data);
         });
       });
     });
@@ -2517,8 +2319,6 @@ setAPIModule('', fetchAPIModule);
  * Browser stuff
  */
 if (typeof document !== 'undefined' && typeof window !== 'undefined') {
-    // Set cache and load existing cache
-    initBrowserStorage();
     const _window = window;
     // Load icons from global "IconifyPreload"
     if (_window.IconifyPreload !== void 0) {
@@ -2896,7 +2696,7 @@ function get_each_context(ctx, list, i) {
 	return child_ctx;
 }
 
-// (96:8) {#each social_links as {link, icon}}
+// (99:8) {#each social_links as {link, icon}}
 function create_each_block(ctx) {
 	let li;
 	let a;
@@ -2935,7 +2735,7 @@ function create_each_block(ctx) {
 		h() {
 			attr(a, "href", a_href_value = /*link*/ ctx[4].url);
 			attr(a, "aria-label", a_aria_label_value = /*icon*/ ctx[5]);
-			attr(a, "class", "svelte-i8f0ga");
+			attr(a, "class", "svelte-l0idsn");
 		},
 		m(target, anchor) {
 			insert_hydration(target, li, anchor);
@@ -3049,7 +2849,7 @@ function create_fragment(ctx) {
 			this.h();
 		},
 		l(nodes) {
-			footer = claim_element(nodes, "FOOTER", {});
+			footer = claim_element(nodes, "FOOTER", { class: true });
 			var footer_nodes = children(footer);
 			div2 = claim_element(footer_nodes, "DIV", { class: true });
 			var div2_nodes = children(div2);
@@ -3105,17 +2905,18 @@ function create_fragment(ctx) {
 		},
 		h() {
 			attr(h2, "class", "heading");
-			attr(span0, "class", "svelte-i8f0ga");
-			attr(a0, "class", "email svelte-i8f0ga");
+			attr(span0, "class", "svelte-l0idsn");
+			attr(a0, "class", "email svelte-l0idsn");
 			attr(a0, "href", a0_href_value = "mailto:" + /*email*/ ctx[0]);
-			attr(div0, "class", "primary svelte-i8f0ga");
-			attr(span1, "class", "copyright svelte-i8f0ga");
+			attr(div0, "class", "primary svelte-l0idsn");
+			attr(span1, "class", "copyright svelte-l0idsn");
 			attr(a1, "href", "https://primo.so");
-			attr(a1, "class", "svelte-i8f0ga");
-			attr(span2, "class", "primo svelte-i8f0ga");
-			attr(ul, "class", "svelte-i8f0ga");
-			attr(div1, "class", "secondary svelte-i8f0ga");
-			attr(div2, "class", "section-container svelte-i8f0ga");
+			attr(a1, "class", "svelte-l0idsn");
+			attr(span2, "class", "primo svelte-l0idsn");
+			attr(ul, "class", "svelte-l0idsn");
+			attr(div1, "class", "secondary svelte-l0idsn");
+			attr(div2, "class", "section-container svelte-l0idsn");
+			attr(footer, "class", "svelte-l0idsn");
 		},
 		m(target, anchor) {
 			insert_hydration(target, footer, anchor);
